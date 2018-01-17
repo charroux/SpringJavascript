@@ -33,7 +33,7 @@ public class CarRentingController {
 	
 	@RequestMapping(value = "/cars", method = RequestMethod.DELETE)
 	@ResponseStatus(HttpStatus.OK)
-	public void deleteCar(@RequestParam(value="plateNumber", required=false) String plateNumber) throws Exception{
+	public void deleteCar(@RequestParam(value="plateNumber", required=true) String plateNumber) throws Exception{
 	}
 
 	
