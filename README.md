@@ -26,4 +26,5 @@ Fonctionnement du projet :
 
 Travail à faire  :
 
-  - crér une page  HTML et le contrôler associé qui permet de supprimer une voiture retrouvée à partir de sa plaque d'immatriculation.
+  - créer une page  HTML et le controller associé qui permet (via un HTTP Delete) de supprimer une voiture retrouvée à partir de sa plaque d'immatriculation.
+  - créer uene page HTML et le controller associé qui permet de modifier (via un HTTP Put) une voiture
