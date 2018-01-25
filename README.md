@@ -1,4 +1,4 @@
-# SpringBootJavascript
+# SpringJavascript
 
 Build du projet : gradlew build    ou ./gradlew build    sous Linux
 
