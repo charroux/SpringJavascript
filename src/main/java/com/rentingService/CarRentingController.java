@@ -28,20 +28,8 @@ public class CarRentingController {
 	@RequestMapping(value = "/cars", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.OK)
 	public void addCar(@RequestBody Car car) throws Exception{
+		System.out.println(car);
 		listOfCars.add(car);
 	}
-	
-	@RequestMapping(value = "/cars", method = RequestMethod.PUT)
-	@ResponseStatus(HttpStatus.OK)
-	public void editCar() throws Exception{
-		System.out.println("ok");
-	}
-	
-	@RequestMapping(value = "/cars", method = RequestMethod.DELETE)
-	@ResponseStatus(HttpStatus.OK)
-	public void deleteCar(@RequestParam(value="plateNumber", required=true) String plateNumber) throws Exception{
-		System.out.println(plateNumber);
-	}
-
 	
 }
