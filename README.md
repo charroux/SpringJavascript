@@ -17,7 +17,9 @@ Fonctionnement du projet :
   - la page d'accueil contient un menu https://github.com/charroux/SpringJavascript/blob/master/src/main/webapp/static/index.html
   
   - le menu redirige vers deux pages :
+    
     https://github.com/charroux/SpringJavascript/blob/master/src/main/webapp/static/createCar.html
+    
     https://github.com/charroux/SpringJavascript/blob/master/src/main/webapp/static/listCars.html
   
   - la première page contient un formulaire HTML, et une fonction Javascript qui fait une requête Ajax HTTP POST vers le web service (https://github.com/charroux/SpringJavascript/blob/master/src/main/java/com/rentingService/CarRentingController.java) 
