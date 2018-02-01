@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<a href="index.html">Menu</a>
+
+<h1>Update a car</h1>
+
+<div id="listOfCars">
+
+<script type="text/javascript">
+
+window.onload = function(){
+	loadCars();
+};
+
+
+ function loadCars(){
+	var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	      var myArr = JSON.parse(this.responseText);
+	      var out = "";
+	      var i;
+	      for(i = 0; i < myArr.length; i++) {
+	          out += '<input type="button" value="update car ' + myArr[i].plateNumber + '"  onclick="updateCar(' + myArr[i].plateNumber + ')"><br>'
+	      }
+	      document.getElementById("listOfCars").innerHTML = out; 
+		  
+	    }
+	  };
+	  xhttp.open("GET", "http://localhost:8080/cars", true);
+	  xhttp.send();
+	  
+	 
+}
+
+function updateCar(i){
+	alert(i);
+}
+</script>
+
+</body>
+</html>
