@@ -27,7 +27,7 @@ window.onload = function(){
 	      var out = "";
 	      var i;
 	      for(i = 0; i < myArr.length; i++) {
-	          out += '<input type="button" value="update car ' + myArr[i].plateNumber + '"  onclick="updateCar(' + myArr[i].plateNumber + ')"><br>'
+	          out += '<input type="button" value="update car ' + myArr[i].plateNumber + '"  onclick="updateCar('+ i + ')"><br>';
 	      }
 	      document.getElementById("listOfCars").innerHTML = out; 
 		  
@@ -40,7 +40,31 @@ window.onload = function(){
 }
 
 function updateCar(i){
-	alert(i);
+ 	var httpRequest = new XMLHttpRequest();
+ 	httpRequest.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	    	var car = JSON.parse(this.responseText);
+	    	var out = '<form>Plate number: <input id="plateNumberId" type="text" name="plateNumber" value="' + car.plateNumber + '"><br>Model: <input id="modelId" type="text" name="model" value="' + car.model + '"><br><br><input type="button" value="Submit" onclick="sendCar()"></form>'; 
+	      document.getElementById("listOfCars").innerHTML = out;
+	    }
+	  }; 
+    httpRequest.open('GET', "http://localhost:8080/cars/" + i, true);
+    httpRequest.setRequestHeader("Content-type", "application/json");
+    httpRequest.send();
+}
+
+function sendCar() {
+    var text = '{"';
+    text += 'plateNumber":"' + document.getElementById("plateNumberId").value + '",'
+    text += '"model":"' + document.getElementById("modelId").value + '"}'
+    
+    var car = JSON.parse(text); 
+    
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.open('PUT', "http://localhost:8080/cars", true);
+    httpRequest.setRequestHeader("Content-type", "application/json");
+    httpRequest.send(JSON.stringify(car));
+    
 }
 </script>
 
